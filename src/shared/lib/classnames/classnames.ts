@@ -3,7 +3,7 @@ const classnames = (cls: string, mods: Mods = {}, additional: string[] = []) => 
     ...additional,
     ...Object.entries(mods)
         .filter(([key, value]) => !!value)
-        .map(([cls]) => cls),
+        .map(([cls]) => cls).filter((cls) => !!cls),
 ].join(' ');
 
 export default classnames;

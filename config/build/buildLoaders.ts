@@ -1,7 +1,7 @@
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOption } from './types/config';
-import {buildCssLoader} from "./loaders/buildCssLoader";
+import { buildCssLoader } from './loaders/buildCssLoader';
 
 const buildLoaders = ({ isDev }: BuildOption): webpack.RuleSetRule[] => {
     const svgLoader = {
@@ -9,7 +9,7 @@ const buildLoaders = ({ isDev }: BuildOption): webpack.RuleSetRule[] => {
         use: ['@svgr/webpack'],
     };
 
-    const cssLoader = buildCssLoader(isDev)
+    const cssLoader = buildCssLoader(isDev);
 
     const babelLoader = {
         test: /\.(js|jsx|tsx)$/,

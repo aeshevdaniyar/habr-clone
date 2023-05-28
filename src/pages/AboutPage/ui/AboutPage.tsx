@@ -1,5 +1,8 @@
-import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
-const AboutPage = () => <h1>About Page</h1>;
+const AboutPage = () => {
+    const { t } = useTranslation();
+    return <h1>{t('About page')}</h1>;
+};
 
 export default AboutPage;
