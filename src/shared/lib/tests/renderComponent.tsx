@@ -6,7 +6,7 @@ import { ReactNode } from 'react';
 export interface RenderComponentOptions {
     route?:string
 }
-export const renderComponent = (component:ReactNode, options:RenderComponentOptions) => {
+export const renderComponent = (component:ReactNode, options:RenderComponentOptions = {}) => {
     const { route = '/' } = options;
     return (
         <MemoryRouter initialEntries={[route]}>
