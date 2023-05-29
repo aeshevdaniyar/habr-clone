@@ -7,6 +7,7 @@ import MainIcon from 'shared/assets/icons/main-20-20.svg';
 import AboutIcon from 'shared/assets/icons/about-20-20.svg';
 import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routerConfig/routerConfig';
+import Modal from 'shared/ui/Modal/Modal';
 import cls from './Sidebar.module.scss';
 import { LanguageSwitcher } from '../../LanguageSwitcher';
 
@@ -19,7 +20,7 @@ const Sidebar = ({ className }:SidebarProps) => {
         setCollapsed((prev) => !prev);
     };
     const { t } = useTranslation();
-
+    const [openModal, setOpenModal] = useState(false);
     return (
         <div
             data-testid="sidebar"
@@ -34,6 +35,10 @@ const Sidebar = ({ className }:SidebarProps) => {
                 square
             >
                 {collapsed ? '>' : '<'}
+            </Button>
+            <Modal isOpen={openModal} onClose={() => setOpenModal(false)} />
+            <Button theme={ButtonTheme.BACKGROUND_INVERTED} onClick={() => setOpenModal(true)}>
+                {t('Open Modal')}
             </Button>
             <div className={cls.items}>
                 <AppLink
